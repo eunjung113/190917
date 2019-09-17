@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>성인 여성 기초대사량 알아보기</title>
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+	<style type="text/css">
+		body{font-family: 'Noto Sans KR', sans-serif; background: oldlace;}
+		.wrap{margin: auto; text-align: center;}
+
+		h3{margin-top: 30px; color: sienna; margin-bottom: 0px;}
+
+		.inside{background: ivory; margin-right: 600px; margin-left: 600px; padding-top: 5px; padding-bottom: 20px;}
+		h4{color: peru; margin-bottom: 10px; font-size: 20px;}
+
+		#mage{color: sienna; font-weight: bold; text-align: center; border: 2px solid bisque; padding: 5px 10px; background-color: ivory;}
+		#mya{color: sienna; font-size: 0em;}
+		#mweight{color: sienna; font-weight: bold; text-align: center; border: 2px solid bisque; padding: 5px 10px; background-color: ivory;}
+		#myw{color: sienna; font-size: 0em;}
+		#mheight{color: sienna; font-weight: bold; text-align: center; border: 2px solid bisque; padding: 5px 10px; background-color: ivory;}
+		#myh{color: sienna; font-size: 0em;}
+		#monitor{color: sienna; font-weight: bolder;}
+
+		#okbut{background-color: navajowhite; border: none; color: sienna; text-decoration: none; padding: 8px 10px;}
+
+		.home{font-size: 20px; color: burlywood;}
+
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<h3>기초대사량을 알아봅시다.<br>(성인 여성 기준)<br><br></h3>
+
+		<div class="inside">
+			<h4>나이<br></h4>
+			<input type="number" id="mage" min="20" max="100">
+			<div id="mya"></div><br>
+
+			<h4>키<br></h4>
+			<input type="number" id="mheight" min="140" max="200">
+			<div id="myh"></div><br>
+
+			<h4>체중<br></h4>
+			<input type="number" id="mweight" min="30" max="150">
+			<div id="myw"></div><br><br>
+
+			<input type="button" id=okbut value="확인" style="cursor: pointer;"><br><br>
+
+			<div id="monitor">당신의 기초대사량은 0000kcal입니다.</div>
+
+			<!-- 여성 : 655.1 + (9.56*체중kg) + (1.85*키cm) - (4.68*한국나이) -->
+			<script>
+				okbut.onclick = function(){
+					mya.innerHTML = mage.value;
+					myw.innerHTML = mweight.value;
+					myh.innerHTML = mheight.value;
+
+					var kcal = 665.1 + 9.56*mweight.value + 1.85*mheight.value - 4.68*mage.value;
+
+					monitor.innerHTML = "당신의 기초대사량은 " + Math.round(kcal) + "kcal입니다.";
+				}
+
+				//okbut.onclick = function(){
+					////여기에 있는 걸 실행하는 거야
+					//var sweight = (mheight.value - 100)*0.9;
+					////띄어쓰기 - "&nbsp;"
+					//monitor.innerHTML = "당신의 표준 체중은 " + sweight + "kg입니다.";}
+				
+
+			</script>
+		</div>
+		<br>
+		<a class="home" href="index.html">처음으로</a>
+	</div>
+</body>
+</html>
